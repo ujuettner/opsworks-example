@@ -18,6 +18,11 @@ class NotesController < ApplicationController
     end
   end
 
+  def delayer
+    Delayer.perform_in(20, note_params[:title], note_params[:body])
+    head :accepted
+  end
+
   def update
     note = Note.find(params[:id])
 
