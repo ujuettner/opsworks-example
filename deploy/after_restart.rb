@@ -1,5 +1,7 @@
-Chef::Log.info('Restarting sidekiq in after_restart')
-
 node[:deploy].each do |application, deploy|
-  sudo "monit restart all -g #{application}_sidekiq"
+  if deploy[:application_type] == 'rails'
+    process_name = "#{application}_sidekiq"
+    Chef::Log.info("Restarting #{process_name} in after_restart")
+    sudo "monit restart all -g #{process_name}"
+  end
 end
