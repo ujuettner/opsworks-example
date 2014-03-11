@@ -46,7 +46,7 @@ GEM
     mime-types (1.25.1)
     minitest (5.3.0)
     multi_json (1.9.0)
-    pg (0.17.1)
+    sqlite3 (1.3.9)
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -109,7 +109,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
-  pg
+  sqlite3
   rails (~> 4.1.0.beta1)
   rails-api
   redis
